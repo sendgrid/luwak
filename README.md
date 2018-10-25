@@ -8,11 +8,11 @@ What is Luwak?
 
 Based on the open source Lucene search library, Luwak is a high performance stored query engine. Simply put, it allows you to define a set of search queries and then monitor a stream of documents for any that might match these queries: a function also known as 'reverse search' and 'document routing'. Flax developed Luwak for clients who monitor high volumes of news using often extremely complex Boolean expressions. Luwak is being used by companies including Infomedia, Bloomberg http://www.flax.co.uk/blog/2016/03/08/helping-bloomberg-build-real-time-news-search-engine/ and Booz Allen Hamilton.
 
-You can find out a bit more about how Flax use Luwak for media monitoring applications in 
+You can find out a bit more about how Flax uses Luwak for media monitoring applications in 
 this video from Lucene Revolution 2013 http://www.youtube.com/watch?v=rmRCsrJp2A8 and this video
 from Berlin Buzzwords 2014 http://berlinbuzzwords.de/session/turning-search-upside-down-search-queries-documents and how we combined it with Apache Samza (including a great illustration of how Luwak internals work) http://www.flax.co.uk/blog/2015/08/26/real-time-full-text-search-with-luwak-and-samza/
 
-Here's some tests we did to compare Luwak to Elasticsearch Percolator:
+Here are some tests we did to compare Luwak to Elasticsearch Percolator:
 http://www.flax.co.uk/blog/2015/07/27/a-performance-comparison-of-streamed-search-implementations/
 
 Scott Stults of Open Source Connections wrote "How to use Luwak to run preset queries against incoming documents":
@@ -54,7 +54,7 @@ Adding queries
 --------------
 
 The monitor is updated using MonitorQuery objects, which consist of an id, a query string, and an
-optional metadata map.  The monitor uses its provided MonitorQueryParser
+optional metadata map. The monitor uses its provided MonitorQueryParser
 to parse the query strings and cache query objects.
 
 In Luwak 1.5.0, errors thrown when adding queries (from query parsing, for example) cause an
@@ -73,7 +73,7 @@ class.  Four basic implementations are provided:
 * ExplainingMatcher - reports which queries matched, with an explanation for their scores
 * HighlightingMatcher - reports which queries matched, with the individual matches for each query
 
-In addition, luwak has two multithreaded matchers which wrap the simpler matchers:
+In addition, Luwak has two multithreaded matchers which wrap the simpler matchers:
 * ParallelMatcher - runs queries in multiple threads as they are collected from the Monitor
 * PartioningMatcher - collects queries, partitions them into groups, and then runs each group in its own thread
 
@@ -81,7 +81,7 @@ Running the demo
 ----------------
 
 A small demo program is included in the distribution that will run queries provided
-in a text file over a small corpus of documents from project gutenberg (via nltk).
+in a text file over a small corpus of documents from Project Gutenberg (via nltk).
 
 ```sh
 ./run-demo
